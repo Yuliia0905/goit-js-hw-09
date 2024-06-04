@@ -38,10 +38,11 @@ form.addEventListener('submit', event => {
   if (formData.email === '' || formData.message === '') {
     alert('Fill please all fields');
     return;
-  } else console.log(formData);
-
-  localStorage.removeItem(STORAGE_KEY);
-  formData.email = '';
-  formData.message = '';
-  form.reset();
+  } else {
+    console.log(formData);
+    localStorage.removeItem(STORAGE_KEY);
+    formData.email = '';
+    formData.message = '';
+    form.reset();
+  }
 });
