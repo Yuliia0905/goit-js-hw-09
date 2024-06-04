@@ -3,7 +3,7 @@ const formData = { email: '', message: '' };
 const STORAGE_KEY = 'feedback-form-state';
 
 const form = document.querySelector('.feedback-form');
-const textarea = form.querySelector('textarea');
+// const textarea = form.querySelector('textarea');
 
 form.addEventListener('input', () => {
   formData.email = form.elements.email.value.trim();
@@ -27,10 +27,12 @@ function loadFromLS(key) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const formData = loadFromLS(STORAGE_KEY);
+  const data = loadFromLS(STORAGE_KEY);
 
-  form.elements.email.value = formData?.email || '';
-  form.elements.message.value = formData?.message || '';
+  form.elements.email.value = data?.email || '';
+  form.elements.message.value = data?.message || '';
+  formData.email = data?.email || '';
+  formData.message = data?.message || '';
 });
 
 form.addEventListener('submit', event => {
